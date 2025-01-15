@@ -1,0 +1,17 @@
+public class Lab7 {
+    public static void main(String[] args) {
+        System.out.println("The random number is between 48 to 122.: ");
+        int num =  (int)(48 + Math.random() * (123-48)); 
+        System.out.println("Your number is "+ num);
+        char ch = (char) num;
+        if (ch >='A' && ch <= 'Z'){
+            System.out.println("The symbol is "+ ch + " is an uppercase letter.");
+        }else if (ch >='a' && ch <= 'z'){
+            System.out.println("The symbol is "+ ch + " is a lower letter.");
+        }else if (ch >='0' && ch <= '9'){
+            System.out.println("The symbol is "+ ch + " is a digit.");
+        }else{
+            System.out.println("The symbol is "+ ch);
+        }
+    }
+}
