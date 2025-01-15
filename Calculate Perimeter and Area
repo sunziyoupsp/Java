@@ -1,0 +1,87 @@
+public class HW6 {
+    public static void square (){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Side length:");
+        double a = in.nextDouble();
+        System.out.printf("Perimeter of the square: " + "%.2f",4*a);
+        System.out.println();
+        System.out.printf("Area of the square: " + "%.2f", a*a);
+        System.out.println();
+    }
+    public static void rectangle (){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Side length:");
+        double a = in.nextDouble();
+        System.out.println("Side width:");
+        double b = in.nextDouble();
+        System.out.printf("Perimeter of the rectangle: " + "%.2f",(a+a+b+b));
+        System.out.println();
+        System.out.printf("Area of the rectangle: " +"%.2f", a*b);
+        System.out.println();
+    }
+    public static void triangle (){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Side a length:");
+        double a = in.nextDouble();
+        System.out.println("Side b length:");
+        double b = in.nextDouble();
+        System.out.println("Side c length:");
+        double c = in.nextDouble();
+        while (a+b<=c || a+c<=b || b+c<=a){
+            if (a+b<=c){
+                System.out.println("Invalid. Make sure a + b > c");
+            }else if (a+c<=b){
+                System.out.println("Invalid. Make sure a + c > b");
+            }else{
+                System.out.println("Invalid. Make sure b + c > a");
+            }
+            System.out.println("Side a length:");
+            a = in.nextDouble();
+            System.out.println("Side b length:");
+            b = in.nextDouble();
+            System.out.println("Side c length:");
+            c = in.nextDouble();
+        }
+        
+        System.out.printf("Perimeter of the triangle: " +"%.2f",  (a+b+c));
+        System.out.println();
+        double s = (a+b+c) /2;
+        double area = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+        System.out.printf("Area of the triangle: " +"%.2f",  area);
+        System.out.println();
+    }
+    public static void circle (){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Side radius:");
+        int r = in.nextInt();
+        System.out.printf("Perimeter of the square: " +"%.2f", (2*3.14*r));
+        System.out.println();
+        System.out.printf("Area of the square: " +"%.2f", (3.14*r*r));
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Choices");
+        System.out.println("1.Square");
+        System.out.println("2.Rectangle");
+        System.out.println("3.Triangle");
+        System.out.println("4.Circle");
+        System.out.println("Which polygon?");
+        int check = in.nextInt();
+        switch (check){
+            case 1:
+                square ();
+                break;
+            case 2:
+                rectangle ();
+                break;
+            case 3:
+                triangle ();
+                break;
+            case 4:
+                circle();
+                break;
+        }
+        
+    }
+    
+}
