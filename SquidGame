@@ -1,0 +1,257 @@
+public class SquidGame {
+    private static String name;
+    public static boolean game(){
+        Scanner in = new Scanner(System.in);
+        System.out.println();
+        System.out.println("----WELCOME TO SQUID GAME----");
+        System.out.println("PARTICIPANT NAME: " + name);
+        System.out.println("You will play 6 games.");
+        System.out.println("If you lose one game, you will be eliminated.");
+        System.out.println("If you win all of the games, you will receive a glorious prize.");
+        System.out.println("Let the games begin. Press enter to begin your first game.");
+        String enter = in.nextLine();
+        if (enter.equals("")){return true;}
+        return true;
+    }
+    public static boolean mathIsFun(){
+        
+        
+        return false;
+    }
+    public static boolean typing(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("----GAME 2: TYPING GAME---");
+        System.out.println("You will type 5 exact line. If you mistype, you lose.");
+        
+        String s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuilder s1 = new StringBuilder();
+        StringBuilder s2 = new StringBuilder();
+        StringBuilder s3 = new StringBuilder();
+        StringBuilder s4 = new StringBuilder();
+        StringBuilder s5 = new StringBuilder();
+        
+        Random r1 = new Random();
+        Random r2 = new Random();
+        Random r3 = new Random();
+        Random r4 = new Random();
+        Random r5 = new Random();
+        while (s1.length() <10){
+            int index1 = (int)(r1.nextFloat()*s.length());
+            int index2 = (int)(r2.nextFloat()*s.length());
+            int index3 = (int)(r3.nextFloat()*s.length());
+            int index4 = (int)(r4.nextFloat()*s.length());
+            int index5 = (int)(r5.nextFloat()*s.length());
+            s1.append(s.charAt(index1));
+            s2.append(s.charAt(index2));
+            s3.append(s.charAt(index3));
+            s4.append(s.charAt(index4));
+            s5.append(s.charAt(index5));
+        }
+        String Line1 = s1.toString();
+        String Line2 = s2.toString();
+        String Line3 = s3.toString();
+        String Line4 = s4.toString();
+        String Line5 = s5.toString();
+        
+        System.out.println("Line 1: "+ Line1);
+        System.out.print("Your line: ");
+        String player = in.nextLine();
+        if (player.equals(Line1)){
+            System.out.println("Line 2: "+ Line2);
+            System.out.print("Your line: ");
+             player = in.nextLine();
+            if (player.equals(Line2)){
+                System.out.println("Line 3: "+ Line3);
+                System.out.print("Your line: ");
+                player = in.nextLine();
+                if (player.equals(Line3)){
+                    System.out.println("Line 4: "+ Line4);
+                    System.out.print("Your line: ");
+                    player = in.nextLine();
+                    if (player.equals(Line4)){
+                        System.out.println("Line 5: "+ Line5);
+                        System.out.print("Your line: ");
+                        player = in.nextLine();
+                        if (player.equals(Line5)){
+                            System.out.println("You win the second game.");
+                            System.out.println("Press enter to begin your third game.");
+                            String enter = in.nextLine();
+                            if (enter.equals("")){return true;}
+                        }else{return false;}
+                    }else{return false;}
+                }else{return false;}
+            }else{return false;}
+        }else{return false;}
+        return true;
+    }
+    public static boolean rollDices(){
+        
+        return false;
+    }
+    public static boolean rockPaperScissors(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("----GAME 4: ROCK, PAPER, SCISSORS---");
+        System.out.println("You will play a game of rock, paper, and scissors against a bot. If you lose 3 times, you lose the game.");
+        int player = 0;
+        int bot = 0;
+        while (player < 3 && bot < 3){
+            System.out.println();
+            System.out.println("Handshape choices:");
+            System.out.println("1.Rock");
+            System.out.println("2.Scissors");
+            System.out.println("3.Paper");
+            System.out.println("Enter your handshape:");
+            int n = in.nextInt();
+            while(n <1 || n>3){
+                System.out.println("Focus. Enter your handshape:");
+                n = in.nextInt();
+            }
+            String s = "";
+            switch(n){
+                case 1 -> s = "Rock";
+                case 2 -> s = "Scissors";
+                case 3 -> s = "Paper";  
+            }
+            int random = (int)(1 + Math.random()*3);
+            String s1 = "";
+            switch(random){
+                case 1 -> s1 = "Rock";
+                case 2 -> s1 = "Scissors";
+                case 3 -> s1 = "Paper";  
+            }
+            if ((n==1 && random==2) || (n==2 && random==3) || (n==3 && random==1)){
+                System.out.println(name + " draws "+ s  + "." + "Bot draws "+ s1 +".");
+                System.out.println(name + " wins.");
+                player ++;
+            }else if((n==1 && random==3) || (n==2 && random==1) || (n==3 && random==2)){
+                System.out.println(name + " draws "+ s  + "." + "Bot draws "+ s1 +".");
+                System.out.println("Bot wins.");
+                bot ++;
+            }else{
+                System.out.println(name + " draws "+ s  + "." + "Bot draws "+ s1 +".");
+                System.out.println("Both player are tied");
+            }
+            System.out.println(name +"'s win count: "+ player);
+            System.out.println("Bot win count: "+ bot);
+        }
+        if (player == 3){
+            System.out.println("You win the fourth game.");
+            System.out.println("Press enter to begin your fifth game.");
+            String enter = in.nextLine();
+            if (enter.equals("")){return true;}
+        }else{
+            return false;
+        }
+        return true;
+    }
+    public static boolean coinFlip(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Game 5: Head or Tail");
+        System.out.println("You will flip a coin and guess head or tail. You must guess correctly through 3 rounds.If you guess wrong, you lose.");
+        int player = 0;
+        int win = 0;
+        int round = 1;
+        while (player < 3){
+            System.out.println("Round#" + round);
+            System.out.println("Head (0) or Tail (1)? ");
+            int n = in.nextInt();
+        }
+        return true;
+    }
+    public static boolean bossFight(){
+        Scanner in = new Scanner(System.in);
+        int player = 20;
+        int boss = 20;
+        int random1, random2;
+        System.out.println(name + " encounters a wild boss!");
+        System.out.println("Fight!");
+        System.out.println(name + "'s HP:" + player);
+        System.out.println("Boss HP:" + boss);
+        
+        System.out.println("----" + name + "'s turn----");
+        System.out.println("1.Attack - Dealt 5 damage:");
+        System.out.println("2.Guard - Heal 2 HP and receive no damage from attack till your next turn.:");
+        System.out.println("3.Break - 50% of breaking guard and dealing 8 damage.:");
+        System.out.println("What's your next move?:");
+        int n = in.nextInt();
+        //attack
+        switch (n) {
+            case 1:
+                System.out.println(name + " use attack");
+                boss -= 3;
+                System.out.println( "Boss receives 3 damages" );
+                //guard
+                break;
+            case 2:
+                System.out.println(name + " use guard");
+                player +=2;
+                System.out.println( name + " stays up on guard and heal 2 HP" );
+                //break
+                break;
+            default:
+                System.out.println(name + " use break");
+                random1 = (int) (Math.random() * 2);
+                if (random1 == 0){
+                    System.out.println( "Break failed!" );
+                }else{
+                    System.out.println(name + " used Break.");
+                    boss -= 8;
+                    System.out.println( "Break successful! Boss receives 8 damages." );
+                }   break;
+        }
+        System.out.println();
+        System.out.println(name +"'s HP: " + player);
+        System.out.println("Boss HP: " + boss);
+        //Boss turn
+        System.out.println("----Boss turn----");
+        random2 = (int) (Math.random() * 3);
+        //attack
+        switch (random2) {
+            case 0:
+                System.out.println("Boss use attack");
+                player -= 3;
+                System.out.println( "Player receives 3 damages" );
+                //guard
+                break;
+            case 1:
+                System.out.println("Boss use guard");
+                boss +=2;
+                System.out.println( "Boss stays up on guard and heal 2 HP" );
+                //break
+                break;
+            default:
+                System.out.println(name + " use break");
+                random1 = (int) (Math.random() * 2);
+                if (random1 == 0){
+                    System.out.println( "Break failed!" );
+                }else{
+                    System.out.println(name + " used Break.");
+                    boss -= 8;
+                    System.out.println( "Break successful! Boss receives 8 damages." );
+                }   break;
+        }
+        System.out.println("Boss is defeated. You win the final game.");
+        return false;
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Would you like to play a game for money? (y or n): ");
+        String s = in.nextLine();
+        if ("n".equals(s)){
+            System.exit(0);
+        }
+        System.out.println("Name?");
+        name = in.nextLine();
+        game();
+        mathIsFun();
+        typing();
+        rollDices();
+        rockPaperScissors();
+        coinFlip();
+        bossFight();
+        System.out.println();
+        System.out.println("Congratulations for winning the Squid Game.");
+        System.out.println("Here's your chicken dinner, "+ name + ". Have a nice day.");
+        System.out.println("Thanks for playing the game.:");
+    } 
+}
