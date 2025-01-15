@@ -1,0 +1,65 @@
+public class HW8Array3DChecker {
+    public static int boundarySum(int[][] array){
+        int sum = 0;
+        for (int i =0; i < array.length;i++){
+            for (int j =0; j < array[0].length;j++){
+                sum += array[i][j];
+            }
+        }
+        return sum;
+    }
+    public static boolean rowDuplicates(int[][] array){
+        int n;
+        for (int i =0; i < array.length;i++){
+            for (int j =0; j < array[0].length;j++){
+                n = array[i][j];
+                for (int k =j+1; k < array[0].length;k++){
+                    if (n == array[i][k]){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;   
+    }
+    public static boolean columnDuplicates(int[][] array){
+        int n;
+        for (int i =0; i < array.length;i++){
+            for (int j =0; j < array[0].length;j++){
+                n = array[j][i];
+                for (int k =j+1; k < array[0].length;k++){
+                    if (n == array[k][i]){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;   
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the number of rows:");
+        int row = in.nextInt();
+        System.out.println("Please enter the number of columns:");
+        int col = in.nextInt();
+        int [][]matrix = new int[row][col];
+        System.out.println("Please enter a " + row+ " by " + col + " matrix:");
+        for (int i =0; i < matrix.length;i++){
+            for (int j =0; j < matrix[0].length;j++){
+                matrix[i][j] = in.nextInt(); 
+            }
+        }
+        System.out.println(Arrays.deepToString(matrix));
+        System.out.println("Sum of the boundary elements: " + boundarySum(matrix));
+        if (rowDuplicates(matrix)){
+            System.out.println("This matrix contains duplicates in one of these rows.");
+        }else{
+            System.out.println("This matrix contains no duplicates in its rows.");
+        }
+        if (columnDuplicates(matrix)){
+            System.out.println("This matrix contains duplicates in one of these rows.");
+        }else{
+            System.out.println("This matrix contains no duplicates in its columns.");
+        }
+    }
+}
