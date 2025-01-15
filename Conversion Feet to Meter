@@ -1,0 +1,30 @@
+public class Lab12 {
+    public static double footToMeter(double num){
+        return 0.305 * num;
+    }
+    
+    public static double meterToFoot(int num){
+        return 3.281 * num;
+    }
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a number:");
+        int num = in.nextInt();
+        System.out.println("(0 is for F to M)");
+        System.out.println("(1 is for M to F)");
+        System.out.println("Which conversion? ");
+        int check = in.nextInt();
+        
+        double foot = 0;
+        double meter = 0;
+        if (check == 0){
+            meter = footToMeter(num);
+            System.out.println(num + "  " + meter);
+        }else{
+            foot = meterToFoot(num);
+            System.out.println(num + "  " + foot);
+        }
+    }
+    
+}
