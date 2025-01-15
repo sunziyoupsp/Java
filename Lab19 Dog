@@ -1,0 +1,38 @@
+public class Lab19Dog {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner in = new Scanner (System.in);
+        int n = 1;
+        List<String> list = new ArrayList<>( );
+        while (true) {
+            System.out.print("What is dog #" + n + "'s name? ");
+            String name = in.nextLine();
+            if (name.equals("")){
+                break;
+            }
+            Dog dog = new Dog (name);
+            list.add(name);
+            n++;
+        }
+        System.out.println("You have " + Dog.numberOfDog + " dogs:");
+        for (int i = 0; i < Dog.numberOfDog; i++){
+            System.out.println(list.get(i));
+        } 
+    }
+}
+
+public class Dog {
+    static int numberOfDog = 0;
+    private String name;
+    public Dog (String name){
+        this.name = name;
+        numberOfDog++;
+    }
+    public String getName(){
+        return this.name;
+    }
+}
