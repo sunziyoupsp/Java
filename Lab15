@@ -1,0 +1,19 @@
+public class Lab15 {
+    public static int[] printArray (int[] array){
+        System.out.println(Arrays.toString(array));
+        return array;
+    }
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("How many elements?");
+        int n = in.nextInt();
+        int [] array = new int[n];
+        System.out.println("Numbers: ");
+        for (int i = 0; i < n; i++){
+            array[i] = in.nextInt();
+        }
+        printArray(array);
+    }
+    
+}
