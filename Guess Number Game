@@ -1,0 +1,153 @@
+public class HW1GuessGame {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Player 1's name: ");
+        String name1 = in.nextLine();
+        System.out.print("Player 2's name: ");
+        String name2 = in.nextLine();
+        Player player1 = new Player(name1);
+        Player player2 = new Player(name2);
+        GameLauncher ready = new GameLauncher(player1, player2);
+        ready.game();
+        System.out.println("---Win Record---");
+        System.out.println(name1 + "'s win count:"+player1.getWinCount());
+        System.out.println(name2 + "'s win count:"+player2.getWinCount());
+        System.out.print("Would you like to continue? (y or n) ");
+        String check = in.nextLine();
+        while (!"y".equals(check) && !"n".equals(check)){
+            System.out.print("Invalid. Would you like to continue? (y or n) ");
+            check = in.nextLine();
+        }if (check.equals("n")){
+            System.out.println("Thanks for playing!");
+            System.exit(0);
+        }while(check.equals("y")){
+            ready.game();
+            System.out.println("---Win Record---");
+            System.out.println(name1 + "'s win count:"+player1.getWinCount());
+            System.out.println(name2 + "'s win count:"+player2.getWinCount());
+            System.out.print("Would you like to continue? (y or n) ");
+            check = in.nextLine();
+            while (!"y".equals(check) && !"n".equals(check)){
+                System.out.print("Invalid. Would you like to continue? (y or n) ");
+                check = in.nextLine();
+            }if (check.equals("n")){
+                System.out.println("Thanks for playing!");
+                System.exit(0);
+            }
+        }
+    }
+}
+
+public class GameLauncher {
+    private int targetNum;
+    private ArrayList<Integer> memory = new ArrayList<Integer>();
+    private long startTime;
+    private Player player1;
+    private Player player2;
+    public GameLauncher(Player player1, Player player2){
+        this.player1 = player1;
+        this.player2 = player2;
+    }
+    public void game(){
+        startTime = new Date().getTime();
+        Scanner in = new Scanner (System.in);
+        targetNum = (int)(Math.random() * 51); // 0 to 50
+        //Player1's first round
+        System.out.print("I have a number between 0 and 50, guess the number?");
+        System.out.println();
+        System.out.print(player1.getName() + ": I am guessing ");
+        int guess1 = in.nextInt();
+        while (guess1 < 0 || guess1 > 50){
+            System.out.print("Invalid number. Please input between 0 and 50: ");
+            guess1 = in.nextInt();
+        }
+        memory.add(guess1);
+        //Player2's first round
+        System.out.print(player2.getName() + ": I am guessing ");
+        int guess2 = in.nextInt();
+        while (guess2 == guess1){
+            System.out.println(guess1 +" is already picked.");
+            System.out.print(player2.getName() + ": I am guessing ");
+            guess2 = in.nextInt();
+            while (guess2 < 0 || guess2 > 50){
+                System.out.print("Invalid number. Please input between 0 and 50: ");
+                guess2 = in.nextInt();
+            }
+        }while (guess2 < 0 || guess2 > 50){
+            System.out.print("Invalid number. Please input between 0 and 50: ");
+            guess2 = in.nextInt();
+        }memory.add(guess2);
+        while(targetNum != guess1 && targetNum != guess2){
+            System.out.println("No winners: Please try again.");
+            //Player1's round
+            System.out.print(player1.getName() + ": I am guessing ");
+            guess1 = in.nextInt();
+            while (true){
+                boolean check1 = false;
+                while (guess1 < 0 || guess1 > 50){
+                    System.out.print("Invalid number. Please input between 0 and 50: ");
+                    guess1 = in.nextInt();
+                }for(int i = 0; i< memory.size() ; i++){
+                    if (guess1 == memory.get(i)){
+                        System.out.println(guess1 + " is already picked.");
+                    }else{
+                        check1 = true;
+                    }
+                }if (check1 == true){
+                    break;
+                }System.out.print(player1.getName() + ": I am guessing ");
+                guess1 = in.nextInt();
+            }memory.add(guess1);
+            System.out.println(memory);
+            //Player2's round
+            System.out.print(player2.getName() + ": I am guessing ");
+            guess2 = in.nextInt();
+            while (true){
+                boolean check2 = false;
+                while (guess2 < 0 || guess2 > 50){
+                    System.out.print("Invalid number. Please input between 0 and 50: ");
+                    guess2 = in.nextInt();
+                }for(int i = 0; i< memory.size() ; i++){
+                    if (guess2 == memory.get(i)){
+                        System.out.println(guess2 + " is already picked.");
+                    }else{
+                        check2 = true;
+                    }
+                }if (check2 == true){
+                    break;
+                }System.out.print(player2.getName() + ": I am guessing ");
+                guess2 = in.nextInt();
+            }memory.add(guess2);
+        }System.out.println("Great, we have a winner!");
+        if (targetNum == guess1){
+            System.out.println("My number is " + targetNum + ", so " + player1.getName() + " wins!");
+            player1.win();
+        }else{
+            System.out.println("My number is " + targetNum + ", so " + player2.getName() + " wins!");
+            player2.win();
+        }long endTime = new Date().getTime();
+        long time = endTime - startTime;
+        System.out.println("Time to complete this game: "+ time/1000+" seconds");
+    }
+}
+
+public class Player {
+    private String name;
+    private int winCount;
+    public Player(String name){
+        this.name = name;
+    }
+    public void win(){
+        winCount++;
+    }
+    public String getName(){
+        return this.name;
+    }
+    public int getWinCount(){
+        return winCount;
+    }
+}
