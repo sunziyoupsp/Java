@@ -1,0 +1,30 @@
+public class HW5 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter number of rows: ");
+        int num1 = in.nextInt();
+        
+        System.out.println("Please enter number to the increasing power: ");
+        int num2 = in.nextInt();
+        
+        int rowCount = 1;
+        for (int i = num1; i > 0; i--){
+            int j = 1;
+            while (j < i){
+                System.out.printf( "%5s"," ");
+                j++;
+            }
+            //Printing j value where j value will be from 1 to rowCount
+            for ( j = 0; j <= rowCount-1; j++){
+                System.out.printf("%5d", (int)Math.pow(num2, j));  
+            }
+            //Printing j value where j value will be from rowCount-1 to 1
+             for ( j = rowCount-1; j >= 1; j--){                    
+                System.out.printf("%5d", (int)Math.pow(num2, j-1));
+            }   
+            System.out.println();
+            //Incrementing the rowCount
+            rowCount++;
+        }
+    }   
+}
