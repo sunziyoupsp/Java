@@ -1,0 +1,20 @@
+public class Board {
+    private String[] board;
+    public Board(){
+        
+    }
+    public void display(){
+        
+    }
+    public boolean put(int position, boolean player){
+        
+        return true;
+    }
+    public boolean playerWin(boolean player){
+        
+        return true;
+    }
+    public void reset(){
+        
+    }
+}
