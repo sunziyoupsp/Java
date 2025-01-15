@@ -1,0 +1,29 @@
+public class Lab18Dog {
+        
+    public static void main(String[] args) {
+        Scanner in = new Scanner (System.in);
+        System.out.print("Wahat is your dog's name?: ");
+        String name = in.nextLine();
+        Dog dog = new Dog(name);
+        dog.bark();
+        dog.wagTail();
+    }
+    
+}
+
+class Dog {
+    private String name;
+    public Dog (String name){
+        this.name = name;
+    }
+    public void bark(){
+        System.out.println(this.name + " barks.");
+    }
+    public void wagTail(){
+        System.out.println(this.name + " wags its tail.");
+    }
+    public String getName(){
+        return this.name;
+    }
+
+}
