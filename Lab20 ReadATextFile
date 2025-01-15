@@ -1,0 +1,13 @@
+public class Lab20ReadATextFile {
+    public static void main(String[] args) throws IOException {
+        String fileName = "HelloWorld.txt";
+        File file = new File(fileName);
+        
+        System.out.printf("Reading %s...\n", fileName);
+        Scanner in = new Scanner(file);
+        
+        while(in.hasNextLine()){
+            System.out.println(in.nextLine());
+        }
+    }
+}
