@@ -1,0 +1,10 @@
+public class Lab14 {
+    public static void main(String[] args) {
+        System.out.println("Today I want to buy...");
+        String [] shoppingList ={"bananas", "milk","cookies","sausages","eggs"};
+        for (int i =0; i<shoppingList.length; i++){
+            System.out.println(shoppingList[i]);
+        }
+    }
+    
+}
