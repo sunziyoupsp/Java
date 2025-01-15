@@ -1,0 +1,15 @@
+public class Project2TicTacToe {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Player 1's name: ");
+        String p1 = in.nextLine();
+        Player player1 = new Player(p1);
+        System.out.print("Player 2's name: ");
+        String p2 = in.nextLine();
+        Player player2 = new Player(p2);
+        System.out.println(p1);
+        System.out.println(p2);
+        
+    }
+    
+}
