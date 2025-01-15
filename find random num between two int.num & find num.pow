@@ -1,0 +1,13 @@
+public class JavaApplication1 {
+        public static void main(String[] args) {
+            int num1, num2,num3;
+            Scanner input = new Scanner(System.in);
+            System.out.println("what is first interger number?");
+            num1 = input.nextInt();
+            System.out.println("what is Second interger number?");
+            num2 = input.nextInt();
+            num3 = num1 + (int)(Math.random()*(num2-num1));
+            int num4 = (int) (Math.pow(num3, 3));
+            System.out.println("The random number is "+ num3 + " of power 3 is "+ num4);
+    }
+}
