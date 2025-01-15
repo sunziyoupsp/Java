@@ -1,0 +1,15 @@
+public class PrintLastFiveLetters {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("string? ");
+        String mes = input.nextLine();
+        
+        System.out.println(mes.length());
+        
+        System.out.println("number? ");
+        int num = input.nextInt();
+        
+        System.out.println(mes.charAt(mes.length()-1));
+    }
+    
+}
