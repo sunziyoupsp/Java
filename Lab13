@@ -1,0 +1,21 @@
+public class Lab13 {
+    private static String name;
+    private static double salary;
+    public static void askUser(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Name?");
+        name = in.nextLine();
+        System.out.println("Salary?");
+        salary = in.nextDouble();
+        
+    }
+    public static void display(){
+        System.out.printf(name + " " + "%.2f%n",salary);
+    }
+    public static void main(String[] args) {
+        askUser();
+        display();
+        
+    }
+    
+}
