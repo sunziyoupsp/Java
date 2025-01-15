@@ -1,0 +1,14 @@
+public class Lab21Exception {
+    public static void main(String[] args) throws Exception{
+        Scanner scan = new Scanner (System.in);
+        try{
+            System.out.print("Give me a number: ");
+            String s = scan.nextLine();
+            int n = Integer.parseInt(s);
+            n += 100;
+            System.out.println(n);
+        }catch (Exception ex){
+            System.out.println("That's not a number.");
+        }
+    }
+}
