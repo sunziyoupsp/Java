@@ -1,0 +1,9 @@
+public class Lab17Args {
+
+    public static void main(String[] args) {
+       System.out.println("1234");
+       for (String s : args)
+            System.out.println("arg -> " + s);
+    }
+    
+}
