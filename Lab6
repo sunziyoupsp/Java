@@ -1,0 +1,32 @@
+public class Lab6 {
+
+    public static void main(String[] args) {
+        String str1, str2, str3;
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter a  first number: ");
+        str1 = input.nextLine();
+        double num1 = Double.parseDouble(str1);
+                
+        System.out.println("Please enter a  second number: ");
+        str2 = input.nextLine();
+        double num2 = Double.parseDouble(str2);
+
+        System.out.println("Please enter a string: ");
+        str3 = input.nextLine();
+        
+        double num3 = num1 + num2;
+        System.out.printf("%s %.1f\n",str3, num3);
+        
+        int i =2, j=2, k = 2;
+        System.out.println(i + "" + j +"" +k);
+        
+        int x = 11;
+        int scale = 4;
+        int score;
+        score = (x>10?3*scale:4*scale);
+        System.out.print(score);
+                
+    }
+    
+}
